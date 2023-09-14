@@ -19,7 +19,12 @@ export const POST = async (request) => {
       { status: 400 }
     );
     }
-    const token = jwt.Secret(process.env.JWT_SECRET);
+    const token = jwt.sign({
+      username,
+      role: userN.role,
+    },
+      process.env.JWT_SECRET,
+    );
 
   return NextResponse.json({ ok: true, token });
 };
