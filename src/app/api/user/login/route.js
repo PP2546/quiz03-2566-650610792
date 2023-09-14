@@ -19,9 +19,9 @@ export const POST = async (request) => {
       { status: 400 }
     );
     }
+
     const token = jwt.sign({
-      username,
-      role: userN.role,
+      username: foundUser.username,
     },
       process.env.JWT_SECRET,
     );
